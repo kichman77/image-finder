@@ -8,18 +8,35 @@ body {
   flex-wrap: wrap;
   list-style: none;
 }
-.LoadMore-button {
+.loadMore-button {
   display: block;
   margin: 0 auto;
+  padding: 15px;
+  font-size: 20px;
+}
+.loadMore-button.hidden {
+  display: none;
+}
+.gallery li {
+  margin-bottom: 50px;
 }
 .photo-card {
   margin-right: 30px;
 }
-.LoadMore-button{
+
+#query,
+.loadMore-button {
+  display: block;
+  margin: 0 auto;
+  margin-top: 50px;
+  background-color: black;
+  border: 2px solid wheat;
+  color: wheat;
   padding: 15px;
   font-size: 20px;
 }
-#query{
-  padding: 15px;
-  font-size: 20px;
+.stats {
+  display: flex;
+  flex-flow: row;
+  justify-content: space-evenly;
 }

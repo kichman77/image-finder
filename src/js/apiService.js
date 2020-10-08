@@ -8,24 +8,27 @@ const baseUrl = "https://pixabay.com/api/";
 // let perPage = 12;
 
 export default {
-  _query: " ",
+  _query: "",
   page: 1,
-  perPage: 12,
+  perPage: 9,
 
   fetchImage() {
-    let url = `${baseUrl}?image_type=photo&orientation=horizontal&q=${this.query}&page=${this.page}&per_page=${this.perPage}&key=${API_key}`;
+    let url = `${baseUrl}?image_type=photo&orientation=horizontal&q=${this._query}&page=${this.page}&per_page=${this.perPage}&key=${API_key}`;
     return fetch(url)
       .then((res) => res.json())
-      .catch((erro) => displayError(error));
+      .catch((error) => displayError(error));
   },
   setPage() {
     return this.page++;
+  },
+  resetPage() {
+    return (this.page = 1);
   },
   get query() {
     return this._query;
   },
   set query(newQuery) {
-    return this._query = newQuery;
+    return (this._query = newQuery);
   },
 };
 

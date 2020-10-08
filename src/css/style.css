@@ -2,3 +2,13 @@ body {
   background-color: black;
   color: wheat;
 }
+
+.gallery{
+  display: flex;
+  width: 500px;
+
+}
+.LoadMore-button{
+  display: block;
+  margin: 0 auto;
+}

@@ -15,10 +15,12 @@ refs.form.addEventListener(
     apiService.query = event.target.value;
     renderApi();
     refs.input.value = "";
-  }, 300),
-
-
+  }, 2000),
 );
+
+
+
+
 
 function renderApi() {
   apiService.fetchImage().then(({ hits }) => {
@@ -29,6 +31,7 @@ function renderApi() {
 const loadMoreButton = document.createElement("button")
 loadMoreButton.textContent = "Load more...";
 loadMoreButton.classList.add("LoadMore-button");
+loadMoreButton.addEventListener("click", loadMore);
 
 function renderImages(data) {
   const items = template(data);
@@ -40,3 +43,8 @@ function renderImages(data) {
       loadMoreButton.classList.add("hidden");
     }
 }
+
+function loadMore() {
+  apiService.setPage()
+  apiService.fetchImage().then(({ hits }) => renderImages(hits))
+};

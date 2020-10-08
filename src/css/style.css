@@ -3,12 +3,23 @@ body {
   color: wheat;
 }
 
-.gallery{
+.gallery {
   display: flex;
-  width: 500px;
-
+  flex-wrap: wrap;
+  list-style: none;
 }
-.LoadMore-button{
+.LoadMore-button {
   display: block;
   margin: 0 auto;
+}
+.photo-card {
+  margin-right: 30px;
+}
+.LoadMore-button{
+  padding: 15px;
+  font-size: 20px;
+}
+#query{
+  padding: 15px;
+  font-size: 20px;
 }

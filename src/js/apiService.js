@@ -11,12 +11,17 @@ export default {
   _query: "",
   page: 1,
   perPage: 12,
-  
-  fetchImage() {
+
+  async fetchImage() {
     let url = `${baseUrl}?image_type=photo&orientation=horizontal&q=${this._query}&page=${this.page}&per_page=${this.perPage}&key=${API_key}`;
-    return fetch(url)
-      .then((res) => res.json())
-      .catch((error) => displayError(error));
+
+    try {
+      const res = await fetch(url);
+      const getResponse = await res.json();
+      return getResponse
+    } catch (error) {
+      throw error
+    }
   },
   setPage() {
     return this.page++;
@@ -32,8 +37,4 @@ export default {
   },
 };
 
-function displayError(error) {
-  const errorH2 = document.createElement("h2");
-  errorH2.textContent = error;
-  refs.body.prepend(errorH2);
-}
+

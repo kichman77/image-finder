@@ -14,10 +14,8 @@ loadMoreButton.addEventListener("click", loadMore);
 
 refs.galleryList.addEventListener("click", (event) => {
   if (event.target.nodeName === "IMG") {
-
     const instance = basicLightbox.create(`
-       <img class="lightBoxImage" src="${event.target.dataset.src}" width="800" height="600">
-    `);
+       <img class="lightBoxImage" src="${event.target.dataset.src}" width="800" height="600"> `);
     console.log(event.target.src);
     instance.show();
   }
@@ -59,8 +57,8 @@ function loadMore() {
     setTimeout(() => {
       window.scrollTo({
         top: document.documentElement.offsetHeight - 2500,
-        behavior: "smooth"
+        behavior: "smooth",
       });
-    },500);
+    }, 500);
   });
 }

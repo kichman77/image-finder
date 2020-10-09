@@ -13,11 +13,14 @@ loadMoreButton.classList.add("loadMore-button");
 loadMoreButton.addEventListener("click", loadMore);
 
 refs.galleryList.addEventListener("click", (event) => {
-  const instance = basicLightbox.create(`
-      <img class="lightBoxImage" src="${event.target.dataset.src}" width="800" height="600">
-  `);
-  console.log(event.target.src);
-  instance.show();
+  if (event.target.nodeName === "IMG") {
+
+    const instance = basicLightbox.create(`
+       <img class="lightBoxImage" src="${event.target.dataset.src}" width="800" height="600">
+    `);
+    console.log(event.target.src);
+    instance.show();
+  }
 });
 
 refs.form.addEventListener(
@@ -53,7 +56,11 @@ function loadMore() {
   apiService.fetchImage().then(({ hits }) => {
     renderImages(hits);
 
-    window.scrollTo(0, 100);
-    window.scrollTo({ top: 1000, behavior: "smooth" });
+    setTimeout(() => {
+      window.scrollTo({
+        top: document.documentElement.offsetHeight - 2500,
+        behavior: "smooth"
+      });
+    },500);
   });
 }

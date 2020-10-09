@@ -10,8 +10,8 @@ const baseUrl = "https://pixabay.com/api/";
 export default {
   _query: "",
   page: 1,
-  perPage: 9,
-
+  perPage: 12,
+  
   fetchImage() {
     let url = `${baseUrl}?image_type=photo&orientation=horizontal&q=${this._query}&page=${this.page}&per_page=${this.perPage}&key=${API_key}`;
     return fetch(url)
